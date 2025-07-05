@@ -12,7 +12,7 @@ class ChatService:
 
         try:
             chain = create_llm_chain(get_model(model_version))
-            model_response = chain.invoke({"question": question})
+            model_response = await chain.ainvoke({"question": question})
             answer = model_response.answer
 
         except Exception as e:
@@ -29,7 +29,7 @@ class ChatService:
     async def process_existing_chat(cls, conversation_id: int, model_version: str, question: str):
         try:
             chain = create_llm_chain(get_model(model_version))
-            model_response = chain.invoke({"question": question})
+            model_response = await chain.ainvoke({"question": question})
             answer = model_response.answer
 
         except Exception as e:

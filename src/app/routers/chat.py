@@ -28,7 +28,7 @@ def get_chat_id(request: Request):
     if conv_id is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Чат не был создан")
     
-    return conv_id
+    return int(conv_id)
 
 
 @router.post("/", response_model=ChatResponse)
@@ -46,7 +46,7 @@ async def start_chat(response: Response, chat_params: SendMessage, current_user 
 
 
 @router.post("/{conversation_id}", response_model=ChatResponse)
-async def add_message_to_existing_chat(chat_params: SendMessage, conversation_id = Depends(get_chat_id), current_user=Depends(get_current_user)):
+async def add_message_to_existing_chat(chat_params: SendMessage, conversation_id: int = Depends(get_chat_id), current_user=Depends(get_current_user)):
     answer = await ChatService.process_existing_chat(
         conversation_id=conversation_id,
         model_version=chat_params.model_version,

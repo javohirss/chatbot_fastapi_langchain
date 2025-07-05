@@ -59,6 +59,38 @@
         </footer>
     </div>
 
+    <!-- Экран выбора режима для админа -->
+    <div id="mode-selection-container" class="mode-selection-container" style="display: none;">
+        <h2>Добро пожаловать, Администратор!</h2>
+        <p>Выберите, что вы хотите сделать:</p>
+        <div class="mode-buttons">
+            <button id="goto-chat-btn">Перейти в чат</button>
+            <button id="goto-admin-panel-btn">Панель администратора</button>
+        </div>
+    </div>
+    
+    <!-- Панель администратора -->
+    <div id="admin-panel-container" class="admin-panel-container" style="display: none;">
+        <header class="admin-header">
+            <h1>Панель администратора</h1>
+            <button id="back-to-selection-btn">Назад к выбору</button>
+        </header>
+        <div class="admin-content">
+            <div class="user-list-panel">
+                <h3>Пользователи</h3>
+                <ul id="user-list">
+                    <!-- Список пользователей будет здесь -->
+                </ul>
+            </div>
+            <div class="history-panel">
+                <h3 id="history-panel-title">История сообщений</h3>
+                <div id="history-content" class="history-content">
+                    <p>Выберите пользователя для просмотра истории.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/static/script.js"></script>
 </body>
 </html>

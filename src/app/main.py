@@ -5,7 +5,7 @@ from fastapi.staticfiles import StaticFiles
 
 from src.app.routers.auth import router as auth_router
 from src.app.routers.chat import router as chat_router
-
+from src.app.routers.admin import router as admin_router
 
 app = FastAPI()
 
@@ -32,5 +32,6 @@ async def read_index():
 
 app.include_router(auth_router)
 app.include_router(chat_router)
+app.include_router(admin_router)
 
 app.mount("/static", StaticFiles(directory="src/app/static"), name="static")
