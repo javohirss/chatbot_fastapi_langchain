@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Экран авторизации -->
+    <div id="auth-container" class="auth-container">
+        <div class="auth-form-container">
+            <!-- Форма входа -->
+            <form id="login-form" class="auth-form">
+                <h2>Вход</h2>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Пароль" required>
+                <button type="submit">Войти</button>
+                <p class="auth-switch">Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a></p>
+                <p id="login-error" class="error-message"></p>
+            </form>
+
+            <!-- Форма регистрации (изначально скрыта) -->
+            <form id="register-form" class="auth-form" style="display: none;">
+                <h2>Регистрация</h2>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Пароль" required>
+                <button type="submit">Зарегистрироваться</button>
+                <p class="auth-switch">Уже есть аккаунт? <a href="#" id="show-login">Войти</a></p>
+                <p id="register-error" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Основной экран чата (изначально скрыт) -->
+    <div id="chat-container" class="chat-container" style="display: none;">
+        <header class="chat-header">
+            <h1>Чат с AI</h1>
+            <button id="new-chat-btn">Новый чат</button>
+        </header>
+        <div id="message-list" class="message-list">
+            <!-- Сообщения будут появляться здесь -->
+        </div>
+        <div id="loading-indicator" class="loading-indicator" style="display: none;">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <footer class="chat-footer">
+            <form id="message-form" class="message-form">
+                <select id="model-select">
+                    <option value="gpt-4o-mini">GPT-4o Mini</option>
+                    <option value="gpt-4o">GPT-4o</option>
+                </select>
+                <input type="text" id="message-input" placeholder="Введите ваше сообщение..." autocomplete="off" required>
+                <button type="submit">Отправить</button>
+            </form>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

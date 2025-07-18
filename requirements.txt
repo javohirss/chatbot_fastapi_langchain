@@ -1,0 +1,12 @@
+fastapi[all]
+uvicorn
+langchain
+langchain-openai
+langchain-community
+python-dotenv
+sqlalchemy
+asyncpg
+passlib
+bcrypt
+python-jose[cryptography]
+pydantic[email]
